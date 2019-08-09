@@ -2,9 +2,9 @@
 
 require 'vendor/autoload.php';
 
-// use PhpOffice\PhpSpreadsheet\Spreadsheet;
-// use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-// use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 /////////////CRIANDO UM NOVO ARQUIVO///////////////
 // $spreadsheet = new Spreadsheet();
@@ -15,18 +15,6 @@ require 'vendor/autoload.php';
 // $writer->save('hello world.xlsx');
 ///////////////////////////////////////////////////
 
-////////////////Escrevendo em um arquivo existente//////////
-// $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('write.xlsx');
-
-// $worksheet = $spreadsheet->getActiveSheet();
-
-// $worksheet->getCell('A1')->setValue('Thalbert');
-// $worksheet->getCell('A2')->setValue('Barbosa');
-// $worksheet->getCell('A3')->setValue('Miranda');
-
-// $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
-// $writer->save('write.xlsx');
-////////////////////////////////////////////////////////////
 
 // $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
 // /**  Load $inputFileName to a Spreadsheet Object  **/
@@ -34,9 +22,11 @@ require 'vendor/autoload.php';
 
 $arquivoXml = simplexml_load_file('clientes.xml');
 
-var_dump($arquivoXml);
+// var_dump($arquivoXml);
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
+$torcedores = $arquivoXml->torcedor[0]["nome"];
+
+echo $torcedores;
 
 // // require __DIR__ . '/../Header.php';
 
@@ -55,14 +45,58 @@ echo $dados[1]["A"]."\n";
 echo $dados[2]["A"]."\n";
 echo $dados[3]["B"]."\n";
 
-if ($dados[3]["B"] == NULL){
-    echo "NUUUULLLL\n";
+$insereLinha = 1;
+
+while (!empty($dados[$insereLinha]["A"])){
+    $insereLinha++;
+} 
+
+echo "linha: ".$insereLinha."\n";
+
+// $letras = ["A","B"];
+
+$cel[0] = "A".$insereLinha;
+$cel[1] = "B".$insereLinha;
+$cel[2] = "C".$insereLinha;
+$cel[3] = "D".$insereLinha;
+$cel[4] = "E".$insereLinha;
+$cel[5] = "F".$insereLinha;
+$cel[6] = "G".$insereLinha;
+$cel[7] = "H".$insereLinha;
+$cel[8] = "I".$insereLinha;
+$cel[9] = "J".$insereLinha;
+
+$numTorcedores = 0;
+
+// $campos = ["nome","documento"];
+
+while($arquivoXml->torcedor[$numTorcedores] != NULL){
+    $torcedor[$numTorcedores][0] = $arquivoXml->torcedor[$numTorcedores]["nome"];
+    $torcedor[$numTorcedores][1] = $arquivoXml->torcedor[$numTorcedores]["documento"];
+    $torcedor[$numTorcedores][2] = $arquivoXml->torcedor[$numTorcedores]["cep"]; 
+    $torcedor[$numTorcedores][3] = $arquivoXml->torcedor[$numTorcedores]["endereco"];
+    $torcedor[$numTorcedores][4] = $arquivoXml->torcedor[$numTorcedores]["bairro"];
+    $torcedor[$numTorcedores][5] = $arquivoXml->torcedor[$numTorcedores]["cidade"];
+    $torcedor[$numTorcedores][6] = $arquivoXml->torcedor[$numTorcedores]["uf"];
+    $torcedor[$numTorcedores][7] = $arquivoXml->torcedor[$numTorcedores]["telefone"];
+    $torcedor[$numTorcedores][8] = $arquivoXml->torcedor[$numTorcedores]["email"];
+    $torcedor[$numTorcedores][9] = $arquivoXml->torcedor[$numTorcedores]["ativo"];
+
+    $numTorcedores++;
 }
 
-// $xml = simplexml_load_string($xmlstring);
-// $json = json_encode($xml);
-// $array = json_decode($json,TRUE);
+$maxTorcedores = $numTorcedores;
+$numTorcedores = 0;
 
-// echo "<pre>";
-// print_r($dados);
-// echo "</pre>";
+////////////////Escrevendo em um arquivo existente//////////
+$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
+
+$worksheet = $spreadsheet->getActiveSheet();
+
+for($numCel = 0; $numCel < 10; $numCel++){
+    $worksheet->getCell($cel[$numCel])->setValue($torcedor[$numTorcedores][$numCel]);
+}
+
+$writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+$writer->save('write.xlsx');
+////////////////////////////////////////////////////////////
