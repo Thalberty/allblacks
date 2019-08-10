@@ -53,18 +53,24 @@ while (!empty($dados[$insereLinha]["A"])){
 
 echo "linha: ".$insereLinha."\n";
 
-// $letras = ["A","B"];
+$letras = ["A","B","C","D","E","F","G","H","I","J"];
 
-$cel[0] = "A".$insereLinha;
-$cel[1] = "B".$insereLinha;
-$cel[2] = "C".$insereLinha;
-$cel[3] = "D".$insereLinha;
-$cel[4] = "E".$insereLinha;
-$cel[5] = "F".$insereLinha;
-$cel[6] = "G".$insereLinha;
-$cel[7] = "H".$insereLinha;
-$cel[8] = "I".$insereLinha;
-$cel[9] = "J".$insereLinha;
+for ($quantLetras = 0; $quantLetras < 10; $quantLetras++){
+    $cel[$quantLetras] = $letras[$quantLetras].$insereLinha;
+}
+
+var_dump($cel);
+
+// $cel[0] = "A".$insereLinha;
+// $cel[1] = "B".$insereLinha;
+// $cel[2] = "C".$insereLinha;
+// $cel[3] = "D".$insereLinha;
+// $cel[4] = "E".$insereLinha;
+// $cel[5] = "F".$insereLinha;
+// $cel[6] = "G".$insereLinha;
+// $cel[7] = "H".$insereLinha;
+// $cel[8] = "I".$insereLinha;
+// $cel[9] = "J".$insereLinha;
 
 $numTorcedores = 0;
 
@@ -92,9 +98,13 @@ $numTorcedores = 0;
 $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
 
 $worksheet = $spreadsheet->getActiveSheet();
-
-for($numCel = 0; $numCel < 10; $numCel++){
-    $worksheet->getCell($cel[$numCel])->setValue($torcedor[$numTorcedores][$numCel]);
+while($arquivoXml->torcedor[$numTorcedores] != NULL){
+    for($numCel = 0; $numCel < 10; $numCel++){
+        $worksheet->getCell($cel[$numCel])->setValue($torcedor[$numTorcedores][$numCel]);
+        $cel[$numCel] = $letras[$numCel].$insereLinha;
+    }
+    $insereLinha++;//inserir na proxima linha
+    $numTorcedores++;
 }
 
 $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
