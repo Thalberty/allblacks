@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Teste do Thalbert</title>
-  <!-- Font Awesome -->
+  <title>Cadrasto de torcedores</title>
+  <!-- Font -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,22 +19,32 @@
 <body>
 
   <header>
-
-    <nav class="navbar navbar-expand-lg navbar-dark default-color">
-      <a class="navbar-brand" href="#"><strong>Bem vindo ao teste do Thalbert</strong></a>
-    </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark info-color">
+          <a class="navbar-brand" href="">Torcedores All Blacks</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link waves-effect waves-light" href="index.html">Formulário<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link waves-effect waves-light" href="upload.html">Inserir arquivos</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
 
   </header>
     
   <div class="modal fade" id="conditionModal" tabindex="-1" role="dialog">
-    <!--    <div class="modal fade" id="conditionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-      aria-hidden="true">-->
       <div class="modal-dialog modal-notify modal-success" role="document">
         <!-- Content -->
         <div class="modal-content">
           <!-- Header -->
           <div class="modal-header">
-            <p class="heading lead">Modal Criada</p>
+            <p class="heading lead">Usuário criado</p>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true" class="white-text">&times;</span>
             </button>
@@ -43,113 +53,108 @@
           <div class="modal-body">
             <div class="text-center">
               <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
-              <p>Parabéns
+              <p>Usuário cadastrado com sucesso!
               </p>
             </div>
           </div>
           <!-- Footer -->
           <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-success">Massa!<i class="far fa-gem ml-1"></i></button>
-            <button type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">Tentar outra coisa</button>
+            <button type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">Cadastrar outro torcedor</button>
           </div>
         </div>
         <!-- Content -->
       </div>
   </div>
 
-    
-  <div class="tab-content pt-2 pl-1" id="pills-tabContent">
 
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-    
-      <div class="row m-5">
-          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-              <li class="nav-item">
-                  <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                    aria-controls="pills-home" aria-selected="true">Home</a>
-              </li>
-              
-              <li class="nav-item">
-                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                    aria-controls="pills-profile" aria-selected="false">Profile</a>
-              </li>
-              
-              <li class="nav-item">
-                  <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                    aria-controls="pills-contact" aria-selected="false">Contact</a>
-              </li>
-          </ul>
-      </div>
-        
-      <div class="row m-5">
-      <!--Grid column-->
-          <div class="col-lg-5 mb-4 mx-auto">
-            <!--Form with header-->
-              <div class="card">
-                  <div class="card-body">
-                      <!--Header-->
-                      <div class="form-header blue accent-1">
-                        <h3><i class="fas fa-file-excel"></i> Entre com os dados:</h3>
-                      </div>
+  <div class="row m-5">
+    <!--Grid column-->
+        <div class="col-lg-5 mb-4 mx-auto">
+          <!--Form with header-->
+            <div class="card">
+                <div class="card-body">
+                    <!--Header-->
+                    <div class="form-header blue accent-1 rounded-pill pl-3">
+                      <h3><i class="fas fa-user-plus"></i> Cadastre um torcedor</h3>
+                    </div>
 
-                      <!--Body-->
-                      <div class="md-form">
-                        <i class="fas fa-user prefix grey-text"></i>
-                        <input id="name" type="text"  class="form-control">
-                        <label for="name">Nome</label>
-                      </div>
+                  
+                    <!--Body-->
+                    <!-- $camposXml = ["nome","documento","cep","endereco","bairro","cidade","uf","telefone","email","ativo"]; -->
+                    
+                    <div class="md-form">
+                      <i class="fas fa-user prefix grey-text"></i>
+                      <input id="name" type="text"  class="form-control">
+                      <label for="name">Nome</label>
+                    </div>
 
-                      <div class="md-form">
-                        <i class="fas fa-envelope prefix grey-text"></i>
-                        <input id="mail" type="text" class="form-control">
-                        <label for="mail">Email</label>
-                      </div>
+                    <div class="md-form">
+                        <i class="fas fa-id-card prefix grey-text"></i>
+                        <input id="document" type="text"  class="form-control">
+                        <label for="document">Documento</label>
+                    </div>
 
-                      <div class="md-form">
+                    <div class="md-form">
+                        <i class="fas fa-map-marked-alt prefix grey-text"></i>
+                        <input id="cep" type="text"  class="form-control">
+                        <label for="cep">CEP</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fas fa-home prefix grey-text"></i>
+                        <input id="address" type="text"  class="form-control">
+                        <label for="address">Endereço</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fas fa-map-marker-alt prefix grey-text"></i>
+                        <input id="bairro" type="text"  class="form-control">
+                        <label for="bairro">Bairro</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fas fa-city prefix grey-text"></i>
+                        <input id="city" type="text"  class="form-control">
+                        <label for="city">Cidade</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fas fa-map prefix grey-text"></i>
+                        <input id="uf" type="text"  class="form-control">
+                        <label for="uf">UF</label>
+                    </div>
+
+                    <div class="md-form">
                         <i class="fas fa-phone-square prefix grey-text"></i>
                         <input id="phone" type="text"  class="form-control">
                         <label for="phone">Telefone</label>
-                      </div>
+                    </div>
 
-                      <div class="md-form">
-                        <i class="fab fa-connectdevelop prefix grey-text"></i>
-                        <input type="text" id="form-Subject" class="form-control">
-                        <label for="form-Subject">Escreva seu comentário</label>
-                      </div>
+                    <div class="md-form">
+                      <i class="fas fa-envelope prefix grey-text"></i>
+                      <input id="mail" type="text" class="form-control">
+                      <label for="mail">Email</label>
+                    </div>
 
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="defaultChecked2" checked>
+                      <label class="custom-control-label" for="defaultChecked2">Ativo</label>
+                    </div>
 
-                      <div class="text-center mt-4">
-                        <button  onclick="enviar()" class="btn btn-light-blue" data-toggle="modal" data-target="#conditionModal">Submit</button>
-                      </div>
-                      
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Ad
-        pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt
-        amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate exercitation cillum id
-        incididunt elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem amet exercitation duis
-        deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut ullamco ea tempor duis.</div>
-      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Est
-        quis nulla laborum officia ad nisi ex nostrud culpa Lorem excepteur aliquip dolor aliqua irure ex.
-        Nulla ut duis ipsum nisi elit fugiat commodo sunt reprehenderit laborum veniam eu veniam. Eiusmod minim
-        exercitation fugiat irure ex labore incididunt do fugiat commodo aliquip sit id deserunt reprehenderit
-        aliquip nostrud. Amet ex cupidatat excepteur aute veniam incididunt mollit cupidatat esse irure officia
-        elit do ipsum ullamco Lorem. Ullamco ut ad minim do mollit labore ipsum laboris ipsum commodo sunt
-        tempor enim incididunt. Commodo quis sunt dolore aliquip aute tempor irure magna enim minim
-        reprehenderit. Ullamco consectetur culpa veniam sint cillum aliqua incididunt velit ullamco sunt
-        ullamco quis quis commodo voluptate. Mollit nulla nostrud adipisicing aliqua cupidatat aliqua pariatur
-        mollit voluptate voluptate consequat non.</div>
-
+                    <div class="text-center mt-4">
+                      <button  onclick="enviar()" class="btn btn-light-blue" data-toggle="modal" data-target="#conditionModal">Cadastrar</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
   </div>
       
     <!-- Footer -->
     <footer class="page-footer font-small blue">
 
       <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">Página de teste</div>
+      <div class="footer-copyright text-center py-3">All Blacks</div>
       <!-- Copyright -->
 
     </footer>
@@ -169,7 +174,7 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   
-  <script type="text/javascript" src="script.js"></script>
+  <!-- <script type="text/javascript" src="script.js"></script> -->
   
  
   <script type="text/javascript">
@@ -180,22 +185,54 @@
         var mail = $("#mail").val();
         var phone = $("#phone").val();
         
-        console.log(nome);
+        console.log("Dentro da função envia");
 
-//        $.ajax({
-//                url: 'salva.php', 
-//                data: {name, mail, phone},
-//                type: 'POST',
-//                success: (data) => {                
-//
-//                    console.log(data);
-//
-//                }//fim sucesso do ajax dos dados
-//            });//fim segundo ajax - dados
+        // var objXMLHttpRequest = new XMLHttpRequest();
+        // objXMLHttpRequest.onreadystatechange = function() {
+        //   if(objXMLHttpRequest.readyState === 4) {
+        //     if(objXMLHttpRequest.status === 200) {
+        //           alert(objXMLHttpRequest.responseText);
+        //     } else {
+        //           alert('Error Code: ' +  objXMLHttpRequest.status +' Error Message: ' + objXMLHttpRequest.statusText);
+        //     }
+        //   }
+        // // }
+        // objXMLHttpRequest.open('GET', 'salva.php');
+        // objXMLHttpRequest.send();
+
+        // submitForm();
+
+        // xhr.open("POST", "salva.php", true);
+        // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+        // xhr.send(data);
+
+      //  $.ajax({
+      //          url: '/home/thalbert/salva.php', 
+      //          data: {name, mail, phone},
+      //          type: 'POST',
+      //          success: (data) => {                
+
+      //              console.log(data);
+
+      //          }//fim sucesso do ajax dos dados
+      //      });//fim segundo ajax - dados
+
+      $.ajax({
+            headers: { "Accept": "application/json"},
+            type: 'GET',
+            url: '/home/thalbert/Projeto/salva.php',
+            crossDomain: true,
+            beforeSend: function(xhr){
+                xhr.withCredentials = true;
+          },
+            success: function(data, textStatus, request){
+                console.log(data);
+            }
+      });
 
       }
-      
-      
+
+
       
       
   </script>
